@@ -5,13 +5,9 @@
 package DAO;
 import conexao.ConexaoMySql;
 import interdisciplinar.Cliente;
-
-import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author yurib
@@ -116,6 +112,7 @@ public class DAOCliente {
             c.setNome(rs.getString("nome"));
             c.setCSenha(rs.getString("senha"));
             c.setEmail(rs.getString("email"));
+            c.setPermissao(rs.getInt("permissao"));
             return c;
         }
         return null;
