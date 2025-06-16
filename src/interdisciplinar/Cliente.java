@@ -8,6 +8,7 @@ package interdisciplinar;
  * @author yurib
  */
 public class Cliente {
+    private int acesso;
     private String email;
     private String nome;
     private String csenha;
@@ -48,5 +49,11 @@ public class Cliente {
     public void setCSenha(String csenha) {
         this.csenha = csenha;
     }
-}
+      public int getPermissao() {
+        return acesso;
+    }
 
+    public void setPermissao(int permissao) {
+        this.acesso = permissao;
+    }
+}

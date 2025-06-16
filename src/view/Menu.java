@@ -133,17 +133,22 @@ public class Menu extends javax.swing.JFrame {
         try {
             Cliente cliente = controle.buscarCliente(email, csenha);
             if (cliente != null) {
-        InicioLogado tela = new InicioLogado(cliente.getNome());
         Cliente.clienteLogado = cliente;
-        tela.setVisible(true);
-        this.dispose();
+            if (cliente.getPermissao() == 1) {
+            TelaADM Adm = new TelaADM(cliente.getNome());
+            Adm.setVisible(true);
     } else {
-        // Login inválido: mostrar erro
-        JOptionPane.showMessageDialog(null, "Email ou senha incorretos.");
-    }
-        } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+          InicioLogado tela = new InicioLogado(cliente.getNome());
+            tela.setVisible(true);
         }
+
+        this.dispose();
+        } else {
+        JOptionPane.showMessageDialog(null, "Email ou senha incorretos.");
+        }
+        } catch (SQLException ex) {
+         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+}
     }//GEN-LAST:event_BotaoLoginActionPerformed
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
